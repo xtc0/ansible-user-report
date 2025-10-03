@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>{{ title }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>{{ title }}</h2>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>UID</th>
+      <th>GID</th>
+      <th>Full Name</th>
+      <th>Home</th>
+      <th>Shell</th>
+    </tr>
+    {% for username, details in users.items() %}
+      {% if details[1]|int >= 1000 %}
+    <tr>
+      <td>{{ username }}</td>
+      <td>{{ details[1] }}</td>
+      <td>{{ details[2] }}</td>
+      <td>{{ details[3] }}</td>
+      <td>{{ details[4] }}</td>
+      <td>{{ details[5] }}</td>
+    </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+</body>
+</html>
+

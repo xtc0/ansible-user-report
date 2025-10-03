@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>{{ title }}</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+
+  <h2 style="text-align: center;">{{ title }}</h2>
+
+  <table style="border-collapse: collapse; width: 80%; margin: 20px auto;">
+    <tr style="background-color: #4CAF50; color: white;">
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Username</th>
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">UID</th>
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">GID</th>
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Full Name</th>
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Home</th>
+      <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Shell</th>
+    </tr>
+
+    {% for username, details in users.items() %}
+      {% if details[1]|int >= 1000 %}
+    <tr style="background-color: #f2f2f2;">
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ username }}</td>
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ details[1] }}</td>
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ details[2] }}</td>
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ details[3] }}</td>
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ details[4] }}</td>
+      <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ details[5] }}</td>
+    </tr>
+      {% endif %}
+    {% endfor %}
+
+  </table>
+
+</body>
+</html>
+

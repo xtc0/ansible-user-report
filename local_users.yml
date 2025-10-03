@@ -1,0 +1,49 @@
+---
+- name: Generate local user report
+  hosts: all
+  gather_facts: true
+  vars_files:
+    - vault.yml
+
+  vars:
+    report_title: "Local User Report"
+    report_file: "/tmp/local_user_report.html"
+    report_email: "ykumarap@redhat.com"
+    gmail_user: "ykumarap@redhat.com"
+
+  tasks:
+
+    - name: Get local users
+      ansible.builtin.getent:
+        database: passwd
+      register: local_users
+
+    - name: Display local_users variable
+      ansible.builtin.debug:
+        var: local_users
+
+    - name: Prepare user list for HTML
+      set_fact:
+        user_list: "{{ local_users.ansible_facts.getent_passwd }}"
+
+    - name: Render HTML report
+      ansible.builtin.template:
+        src: "templates/inline.html.j2"
+        dest: "{{ report_file }}"
+      vars:
+        users: "{{ user_list }}"
+        title: "{{ report_title }}"
+
+    - name: Email report
+      community.general.mail:
+        port: 587
+        host: smtp.gmail.com
+        username: "{{ gmail_user }}"
+        password: "{{ gmail_password }}"
+        from: "{{ report_email }}"
+        to: "{{ report_email }}"
+        subject: "{{ report_title }}"
+        body: "Please find the attached report."
+        attach:
+          - "{{ report_file }}"
+        secure: starttls
