@@ -84,6 +84,11 @@ a styled HTML table.
 
 This file acts as a blueprint for rendering the final report before it’s sent via email.
 
+### How Email Looks Like
+
+![](assets/result.png)
+
+
 ---
 
 ## License
