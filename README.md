@@ -64,6 +64,26 @@ ansible-playbook local_users.yml --ask-vault-pass
 # Refer to inventory file.
 # Only used backup.local as single node in inventory file
 ```
+
+### About vault.yml
+
+vault.yml is used to secure store the variable `gmail_password` (seen in local_users.yml, line 42).
+This password is a 16-digit passcode that gives a less secure app or device permission to access 
+your Google Account. [Link to App Password Page](https://support.google.com/mail/answer/185833?hl=en)
+[Link to App Password Creation for Gmail](https://myaccount.google.com/apppasswords)
+
+With the app password, Ansible can send emails throuh SMTP.
+
+### About templates/inline.html.j2
+
+This file is a Jinja2 HTML template. This template is dynamically used by the playbook (local_users.yml)
+to generate a formatted report of system users.
+
+The template dynamically inserts user information (e.g., username, UID, home directory, and shell) into 
+a styled HTML table.
+
+This file acts as a blueprint for rendering the final report before it’s sent via email.
+
 ---
 
 ## License
