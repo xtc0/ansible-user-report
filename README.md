@@ -72,7 +72,7 @@ This password is a 16-digit passcode that gives a less secure app or device perm
 your Google Account. [Link to App Password Page](https://support.google.com/mail/answer/185833?hl=en)
 [Link to App Password Creation for Gmail](https://myaccount.google.com/apppasswords)
 
-With the app password, Ansible can send emails throuh SMTP.
+With the app password, Ansible can send emails through SMTP.
 
 ### About templates/inline.html.j2
 
