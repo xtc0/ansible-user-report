@@ -10,7 +10,6 @@ This playbook retrieves system alarms and device configurations in various forma
 - [Requirements](#-requirements)
 - [Installation](#-installation)
 - [Usage](#-usage)
-- [Contributing](#-contributing)
 - [License](#-license)
 
 ---
