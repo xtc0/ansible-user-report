@@ -67,10 +67,10 @@ ansible-playbook local_users.yml --ask-vault-pass
 
 ### About vault.yml
 
-vault.yml is used to secure store the variable `gmail_password` (seen in local_users.yml, line 42).
+vault.yml is used to securely store the variable `gmail_password` (seen in local_users.yml, line 42).
 This password is a 16-digit passcode that gives a less secure app or device permission to access 
-your Google Account. [Link to App Password Page](https://support.google.com/mail/answer/185833?hl=en)
-[Link to App Password Creation for Gmail](https://myaccount.google.com/apppasswords)
+your Google Account. 📎[Link to App Password Page](https://support.google.com/mail/answer/185833?hl=en)
+📎[Link to App Password Creation for Gmail](https://myaccount.google.com/apppasswords)
 
 With the app password, Ansible can send emails through SMTP.
 
