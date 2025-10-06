@@ -1,7 +1,9 @@
 # Ansible Playbook: Ansible User Report
 
-Automate health checks on Juniper devices using Ansible.
-This playbook retrieves system alarms and device configurations in various formats.
+This project automates the process of collecting local user information from Linux systems, creating reports
+and emailing them. It is useful for system administrators or DevOps engineers who want an automated
+way to verify user accounts.
+
 
 ---
 
@@ -15,10 +17,6 @@ This playbook retrieves system alarms and device configurations in various forma
 ---
 
 ## About
-
-This project automates the process of collecting local user information from Linux systems, creating reports
-and emailing them. It is useful for system administrators or DevOps engineers who want an automated
-way to verify user accounts.
 
 Key features:
 - Collect local user accounts via `getent` module
